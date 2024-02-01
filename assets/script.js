@@ -17,7 +17,7 @@ function showFiveDayData(data) {
     const fiveday = document.querySelector(".fiveday");
     fiveday.innerHTML = '';
 
-    for (let i = 3; i < data.list.length; i += 8) {
+    for (let i = 0; i < data.list.length; i += 8) {
         const day = document.createElement("div");
         day.className = "singleFiveDay"
         const date = document.createElement("h4");
@@ -42,7 +42,6 @@ function updateSearchHistory(cityName) {
     localStorage.setItem('srchHistory', JSON.stringify(historyStorage));
 }
 
-
 function showHistory() {
     srchHistory.innerHTML = '';
 
@@ -56,14 +55,12 @@ function showHistory() {
     });
 }
 
-
 function historyClick(cityName) {
     const apiKey = 'ac7cfdad3180ba5a0c973ed1afcfe1f5';
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=${apiKey}`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=${apiKey}&units=imperial`;
 
     fetchDataAndUpdate(apiUrl);
 }
-
 
 function fetchDataAndUpdate(apiUrl) {
     fetch(apiUrl)
@@ -75,13 +72,12 @@ function fetchDataAndUpdate(apiUrl) {
         })
         .then(data => {
             displayCurrentWeather(data);
-            fetchForecastData(data.coord.lat, data.coord.lon);
+            fetchForecastData(data.name); 
         })
         .catch(error => {
             console.error('Fetch error:', error);
         });
 }
-
 
 search.addEventListener('submit', event => {
     event.preventDefault();
@@ -96,14 +92,15 @@ search.addEventListener('submit', event => {
     fetchDataAndUpdate(apiUrl);
 });
 
-
-function fetchForecastData(lat, lon) {
+function fetchForecastData(cityName) {
     const apiKey = 'ac7cfdad3180ba5a0c973ed1afcfe1f5';
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=imperial`;
 
     fetch(apiUrl)
         .then(res => res.json())
-        .then(data => showFiveDayData(data));
+        .then(data => {
+            showFiveDayData(data);
+        });
 }
 
 showHistory();
