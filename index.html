@@ -2,31 +2,55 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Weather Dashboard</title>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="./assets/style.css" />
+
 </head>
 
 <body>
-    <div id="main-container">
-        <div class="container">
-            <h1>Weather Dashboard</h1>
-            <form id="searchForm">
-                <input type="text" id="cityInput" placeholder="Enter City">
+    <header>
+        <h1>Weather App</h1>
+    </header>
+    <div class="box">
+        <aside class="sidebar">
+            <h2>Search</h2>
+            <form id="search">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" placeholder="Enter city name" required />
                 <button type="submit">Search</button>
             </form>
-            <div id="weatherInfo"></div>
-            <div id="searchHistory"></div>
-        </div>
-        <div id="forecastContainer">
-            <div id="currentForecast">oppa</div>
-            <div id="fiveDayForecast">
-                5sos</div>
-        </div>
+            <br />
+            <h2>Search History</h2>
+            <ul class="history"></ul>
+        </aside>
+        <main class="maincont">
+            <div class="weather">
+                <h2 class="crtWeather">Current Weather</h2>
+                <p id="cityName"></p>
+                <p id="date"></p>
+                <p id="temp"></p>
+                <p id="humidity"></p>
+                <p id="windspeed"></p>
+                <img id="icon" />
+            </div>
+            <div class="fiveday">
+                <h2>5 Day Forecast</h2>
+            </div>
+        </main>
     </div>
 
-    <script src="script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"
+        integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg=="
+        crossorigin="anonymous"></script>
+
+    <script src="./assets/script.js"></script>
+
 </body>
 
 </html>

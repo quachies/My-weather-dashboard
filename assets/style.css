@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #2c2c2c;
+    color: #dfdfdf;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .box {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  
+  .sidebar {
+    width: 30%;
+    background-color: #f7f7f7;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+  }
+  
+  .sidebar h2 {
+    margin-top: 0;
+  }
+  
+  .history {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+  }
+  
+  .history li {
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border: 1px solid lightgrey;
+    background-color: rgb(187, 161, 117); 
+    border-radius: 5px;
+  }
+  
+  .maincont {
+    flex: 1;
+    margin-left: 1rem;
+  }
+  
+  .weather, .fiveday {
+    background-color: rgb(187, 161, 117);
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    margin-bottom: 1rem;
+  }
+  
+  .weather h2, .fiveday h2 {
+    margin-top: 0;
+    color: black;
+  }
+  
+  .fiveday {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .singleFiveDay {
+    border: solid;
+    padding: 2vh;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-wrap: balance;
+  }
